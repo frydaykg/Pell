@@ -2,7 +2,7 @@ def checkPellSolution(x,y,n):
 	return x*x - n*y*y == 1
 	
 	
-def getContinuedFraction(val, l):
+def getContinuedFraction(val, l = 25):
 	a = int(val)
 	x = val - a
 	l -= 1
