@@ -9,6 +9,6 @@ def getContinuedFraction(val):
 	
 	while True:
 		a.append(int(1/x[-1]))
-		xx.append(1/x[-1]-a[-1])
+		x.append(1/x[-1]-a[-1])
 		yield a[-1]
 
