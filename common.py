@@ -3,11 +3,11 @@ def checkPellSolution(x,y,n):
 	
 	
 def getContinuedFraction(val):
-	a = [int(val)]
-	x = [val - a[0]]
-	yield a[0]
+	a = int(val)
+	x = val - a
+	yield a
 	
-	while x[-1] != 0:
-		a.append(int(1/x[-1]))
-		x.append(1/x[-1] - a[-1])
-		yield a[-1]
+	while x != 0:
+		a = int(1/x)
+		x = 1/x - a
+		yield a
