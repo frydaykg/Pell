@@ -7,9 +7,7 @@ def getContinuedFraction(val):
 	x = [val - a[0]]
 	yield a[0]
 	
-	while True:
-		if x[-1] == 0:
-			return
+	while x[-1] != 0:
 		a.append(int(1/x[-1]))
 		x.append(1/x[-1] - a[-1])
 		yield a[-1]
