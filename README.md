@@ -24,27 +24,27 @@ Some math
 
 Calculation of continued fraction for x
 
-a_0 = int(x)              
-x_0 = x - a_0
+a[0] = int(x)              
+x[0] = x - a[0]
 
 
-a_1 = int(1 / x_0)        
-x_1 = 1 / x_0 - a_1
+a[1] = int(1 / x[0])        
+x[1] = 1 / x[0] - a[1]
 
 
-a_n = int(1 / x_[n-1])    
-x_n = 1 / x_[n-1] - a_n
+a[n] = int(1 / x[n-1])    
+x[n] = 1 / x[n-1] - a[n]
 
 
 Calculation of convergent fractons by continued fraction
 
-p_[-1] = 1       
-q_[-1] = 0         
+p[-1] = 1       
+q[-1] = 0         
 
 
-p_0 = a_0      
-q_0 = 1
+p[0] = a[0]      
+q[0] = 1
 
 
-p_n = a_n * p_[n-1] + p_[n-2]       
-q_n = a_n * q_[n-1] + q_[n-2]
+p[n] = a[n] * p[n-1] + p[n-2]       
+q[n] = a[n] * q[n-1] + q[n-2]
