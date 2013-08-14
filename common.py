@@ -1,12 +1,10 @@
 def checkPellSolution(x,y,n):
-	if x*x-n*y*y==1:
-		return True
-	return False
+	return x*x - n*y*y == 1
 	
 	
 def getContinuedFraction(val):
-	a=[int(val)]
-	x=[val-a[0]]
+	a = [ int(val) ]
+	x = [ val - a[0] ]
 	yield a[0]
 	
 	while True:
