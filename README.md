@@ -3,48 +3,17 @@ Pell
 
 Pell's equation solver
 
-Files
+Abstract
 =====
 
-pell.py  
-Contain solution for n=61. Continued fraction of sufficient length precalculated. Code calculate right convergent fractions and find out solution.
-
-common.py  
-Contain function for Pell's equation checking and continued fractions generator.
-
-iterativePell.py   
-Try to find solution of Pell's equation for n from 1 to 1000. Code hover on n=61.
-
-pell.cpp   
-Check continued fracton generation for n=61. It's already known, that solution achieved on 21 step(in n=61 case). That't why N=30 enough for calculation. Code calculate incorrect continued fraction.
+pell.py contains function to solve Pell's equation. Main code calculate solutions for 1 <= D <= 1000.
 
 
 Some math
 ============
 
-Calculation of continued fraction for x
+Continued fractions calculates with next algorithm:   
+http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Continued_fraction_expansion  
 
-a[0] = int(x)              
-x[0] = x - a[0]
-
-
-a[1] = int(1 / x[0])        
-x[1] = 1 / x[0] - a[1]
-
-
-a[n] = int(1 / x[n-1])    
-x[n] = 1 / x[n-1] - a[n]
-
-
-Calculation of convergent fractons by continued fraction
-
-p[-1] = 1       
-q[-1] = 0         
-
-
-p[0] = a[0]      
-q[0] = 1
-
-
-p[n] = a[n] * p[n-1] + p[n-2]       
-q[n] = a[n] * q[n-1] + q[n-2]
+Convergent fractions calculates with next formulas:  
+http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B0%D1%8F_%D0%B4%D1%80%D0%BE%D0%B1%D1%8C#.D0.9F.D0.BE.D0.B4.D1.85.D0.BE.D0.B4.D1.8F.D1.89.D0.B8.D0.B5_.D0.B4.D1.80.D0.BE.D0.B1.D0.B8
