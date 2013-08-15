@@ -1,22 +1,48 @@
 import math
-from common import *
 
-def getFractionsByRow(a):
-	p=[1,a[0]]
-	q=[0,1]
-	yield (p[1],q[1])
+def getContinuedFractionOfSquareRoot(val):
+	m = [0]
+	d = [1]
+	a = [int(math.sqrt(val))]
+	yield a[0]
 	
-	for i in range(1,len(a)):
-		p.append(a[i]*p[-1]+p[-2])
-		q.append(a[i]*q[-1]+q[-2])
-		yield (p[-1],q[-1])
+	while True:
+		mm = d[-1]*a[-1] - m[-1]
+		dd = (val - mm*mm) / d[-1]
+		aa= int( (a[0] + mm)/dd )
+		m.append(mm)
+		d.append(dd)
+		a.append(aa)
+		yield aa
 
 
-#For n=61
-n=61
-a=[7, 1, 4, 3, 1, 2, 2, 1, 3, 4, 1, 14, 1, 4, 3, 1, 2, 2, 1, 3, 4, 1, 14, 1, 4, 3, 1, 2, 2, 1, 3, 4, 1, 14]
+def checkPellSolution(x,y,n):
+	return x*x - n*y*y == 1
 
-for (p,q) in getFractionsByRow(a):
-	if checkPellSolution(p,q,n):
-		print 'Solution for n= %d: x= %d, y=%d' % (n,xx,yy)
-		break
+
+def solve(D):
+	if int(math.sqrt(D))**2 == D:
+		return
+	
+	continuedFractionGenerator = getContinuedFractionOfSquareRoot(D)
+	a = continuedFractionGenerator.next()
+	p = [1, a]
+	q = [0, 1]
+	
+	for a in continuedFractionGenerator:
+		if checkPellSolution(p[-1], q[-1], D):
+			return (p[-1], q[-1])
+			
+		p.append(a*p[-1] + p[-2])
+		q.append(a*q[-1] + q[-2])
+
+
+for D in xrange(1,1001):
+	result = solve(D)
+	if result is None:
+		print 'No solution for D= %d' % D
+		continue
+		
+	print 'Solution for D= %d: x= %d, y=%d' % (D, result[0], result[1])
+	
+
